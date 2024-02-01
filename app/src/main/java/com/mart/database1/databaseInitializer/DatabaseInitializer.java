@@ -12,7 +12,8 @@ import com.mart.database1.entities.User;
 
 public class DatabaseInitializer {
 
-    private static final String DATABASE_NAME = "Persondb";
+    public static final String DATABASE_NAME = "Persondbs" ;
+//    private static final String DATABASE_NAME = "Persondbs";
     private static mydatabase instance;
 
     public static synchronized mydatabase getInstance(Context context) {

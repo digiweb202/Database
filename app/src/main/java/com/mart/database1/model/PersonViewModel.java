@@ -8,6 +8,7 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Room;
 
 import com.mart.database1.database.mydatabase;
+import com.mart.database1.databaseInitializer.DatabaseInitializer;
 import com.mart.database1.entities.User;
 import com.mart.database1.repository.PersonRepository;
 
@@ -20,7 +21,11 @@ public class PersonViewModel extends AndroidViewModel {
 
     public PersonViewModel(@NonNull Application application) {
         super(application);
-        mydatabase Mydatabase = Room.databaseBuilder(application, mydatabase.class, "Persondb").build();
+        mydatabase Mydatabase = Room.databaseBuilder(
+                application,
+                mydatabase.class,
+                DatabaseInitializer.DATABASE_NAME // Use the constant here
+        ).build();
         repository = new PersonRepository(Mydatabase);
         allPersons = repository.getAllPersons();
     }
