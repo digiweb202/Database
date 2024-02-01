@@ -4,17 +4,17 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "user")
+@Entity(tableName = "userlogin")
 public class User {
 
     @ColumnInfo(name = "person_id")
     @PrimaryKey(autoGenerate = true)
     long id;  // Change to long
 
-    @ColumnInfo(name = "name")
+    @ColumnInfo(name = "username")
     String name;
 
-    @ColumnInfo(name = "age")
+    @ColumnInfo(name = "password")
     String age;
 
     public long getId() {

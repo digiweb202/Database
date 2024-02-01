@@ -15,7 +15,7 @@ public class PersonRepository {
 
     public PersonRepository(mydatabase Mydatabase) {
         personDAO = Mydatabase.getPersonDAO();
-        allPersons = (LiveData<List<User>>) personDAO.getAllPerson();
+        allPersons = personDAO.getAllPerson();
     }
 
     public LiveData<List<User>> getAllPersons() {
@@ -38,5 +38,25 @@ public class PersonRepository {
             personDAO.addPerson(users[0]);
             return null;
         }
+    }
+    public void update(User user) {
+        new UpdatePersonAsyncTask(personDAO).execute(user);
+    }
+
+    private static class UpdatePersonAsyncTask extends AsyncTask<User, Void, Void> {
+        private userDao personDAO;
+
+        private UpdatePersonAsyncTask(userDao personDAO) {
+            this.personDAO = personDAO;
+        }
+
+        @Override
+        protected Void doInBackground(User... users) {
+            personDAO.updatePerson(users[0]);
+            return null;
+        }
+    }
+    public LiveData<User> getPersonById(int personId) {
+        return personDAO.getPersonById(personId);
     }
 }

@@ -1,5 +1,8 @@
 package com.mart.database1.model;
+
 import android.app.Application;
+
+import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.room.Room;
@@ -15,7 +18,7 @@ public class PersonViewModel extends AndroidViewModel {
     private PersonRepository repository;
     private LiveData<List<User>> allPersons;
 
-    public PersonViewModel(Application application) {
+    public PersonViewModel(@NonNull Application application) {
         super(application);
         mydatabase Mydatabase = Room.databaseBuilder(application, mydatabase.class, "Persondb").build();
         repository = new PersonRepository(Mydatabase);
@@ -29,4 +32,13 @@ public class PersonViewModel extends AndroidViewModel {
     public void insert(User user) {
         repository.insert(user);
     }
+
+    public void update(User user) {
+        repository.update(user);
+    }
+
+    public LiveData<User> getPersonById(int personId) {
+        return repository.getPersonById(personId);
+    }
+
 }
