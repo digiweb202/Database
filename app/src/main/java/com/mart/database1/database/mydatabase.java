@@ -4,7 +4,7 @@ package com.mart.database1.database;
 import androidx.room.Database;
 import androidx.room.RoomDatabase;
 
-import com.mart.database1.database.dao.userDao;
+import com.mart.database1.dao.userDao;
 import com.mart.database1.entities.User;
 
 @Database(entities = {User.class}, version = 1)

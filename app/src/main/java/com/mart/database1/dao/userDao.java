@@ -1,4 +1,4 @@
-package com.mart.database1.database.dao;
+package com.mart.database1.dao;
 
 import androidx.room.Dao;
 import androidx.room.Delete;

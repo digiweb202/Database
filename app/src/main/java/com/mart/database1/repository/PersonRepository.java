@@ -3,7 +3,7 @@ package com.mart.database1.repository;
 import android.os.AsyncTask;
 import androidx.lifecycle.LiveData;
 
-import com.mart.database1.database.dao.userDao;
+import com.mart.database1.dao.userDao;
 import com.mart.database1.database.mydatabase;
 import com.mart.database1.entities.User;
 import java.util.List;
