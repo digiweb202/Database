@@ -14,6 +14,7 @@ import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.mart.database1.database.mydatabase;
+import com.mart.database1.databaseInitializer.DatabaseInitializer;
 import com.mart.database1.entities.User;
 
 public class MainActivity extends AppCompatActivity {
@@ -34,18 +35,8 @@ public class MainActivity extends AppCompatActivity {
         editTextPassword = findViewById(R.id.edt_password);
         Btn_submit = findViewById(R.id.btn_submit);
 
-        RoomDatabase.Callback myCallBack = new RoomDatabase.Callback() {
-            @Override
-            public void onCreate(@NonNull SupportSQLiteDatabase db) {
-                super.onCreate(db);
-            }
-
-            @Override
-            public void onDestructiveMigration(@NonNull SupportSQLiteDatabase db) {
-                super.onDestructiveMigration(db);
-            }
-        };
-        Mydatabase = Room.databaseBuilder(getApplicationContext(), mydatabase.class, "Persondb").addCallback(myCallBack).build();
+        // In your MainActivity or any other class
+        Mydatabase = DatabaseInitializer.getInstance(getApplicationContext());
 
         Btn_submit.setOnClickListener(new View.OnClickListener() {
             @Override
